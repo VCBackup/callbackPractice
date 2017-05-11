@@ -26,7 +26,7 @@ and what you should write is the sayHi function that makes the code above work,
 
 var first = function(arr, callback){
   return callback(arr[0]);
-}
+};
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -54,7 +54,9 @@ last(names, function(lastName){
 // 3. Write a function called multiply that multiplies two numbers using a callback function.
 
   //Code Here
-
+var multiply = function(a, b, callback){
+  return callback(a*b);
+};
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -66,6 +68,15 @@ multiply(4, 3, function(answer){
 // If it does, return true using the callback, if not return false.
 
   //Code Here 
+var contains = function(arr, name, callback){
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i] == name){
+      return callback(true);
+    }
+  }
+  return callback(false);
+};
+
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -81,6 +92,18 @@ contains(names, 'Colt', function(result){
 // the callback function with the array of unique names.
 
     //Code Here
+var uniq = function(arr, callback){
+  var arr2 = arr;
+  var answer = [];
+  for (var i = 0; i < arr.length; i++){
+    for (var j = 0; j < arr2.length; i++){
+      if(arr2[j] == arr[i]){
+        answer = answer + arr.splice(i, 1);
+      } 
+    }
+  }
+  return callback(answer);
+};
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);

@@ -39,6 +39,7 @@ first(names, function(firstName){
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
   //Code Here
+
 var last = function(arr, callback){
   var someVar = arr.length -1;
   return callback(arr[someVar]);
@@ -93,16 +94,18 @@ contains(names, 'Colt', function(result){
 
     //Code Here
 var uniq = function(arr, callback){
-  var arr2 = arr;
   var answer = [];
-  for (var i = 0; i < arr.length; i++){
-    for (var j = 0; j < arr2.length; i++){
-      if(arr2[j] == arr[i]){
-        answer = answer + arr.splice(i, 1);
-      } 
-    }
+  var whileValue = 0;
+  while (whileValue < 10){
+    for (var i = 0; i < arr.length; i++){
+      if(arr.indexOf(arr[i]) != arr.lastIndexOf(arr[i])){
+        answer = answer.concat(arr.splice(i, 1));
+        i--;
+      }
   }
-  return callback(answer);
+  whileValue++; 
+  }
+  return callback(arr);
 };
 
 uniq(names, function(uniqArr){
@@ -114,6 +117,11 @@ uniq(names, function(uniqArr){
 // function to return the indices and item.
 
     //Code Here 
+var each = function(arr, callback){
+  for (var i = 0; i < arr.length; i++){
+  callback(arr[i], i);
+  }
+};
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -125,6 +133,14 @@ each(names, function(item, indice){
 // and returns that user.
 
  //Code Here
+
+var getUserById = function(arr, id, callback){
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i].id == id){
+      return callback(arr[i]);
+    }
+  }
+};
 
 var users = [
   {

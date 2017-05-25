@@ -18,6 +18,4 @@ If you see a problem or a typo, please fork, make the necessary changes, and cre
 
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250">
 
-Adding text here to update git
-Adding more to update git
 
